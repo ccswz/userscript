@@ -1,6 +1,8 @@
 // userscript 常用函数库
 // @grant GM_xmlhttpRequest
 // @grant GM_openInTab
+// @grant GM_setValue
+// @grant GM_getValue
 
 // 请求模板文件 doc 服务器地址
 const HOST_DOC = "http://172.28.176.20:8000";
@@ -11,19 +13,26 @@ const HOST_TODO = 'https://helper.t0t0.top:60816'
 
 // MS GRAPH 是否已经登录
 async function is_login() {
+    login_time = GM_getValue('login_time', 0)
+    now=new Date().getTime()
+    if(now-login_time<=1000*60*60*24){
+        return true
+    }
+
     const url = HOST_TODO + "msgraph/is_login";
     const opt = {
         method: 'GET',
     }
     const res = await request(url, opt);
     console.log(res);
-    if(res.msg==='NOT_LOGIN'){
-        return false
+    if(res.msg==='LOGIN'){
+        GM_setValue('login_time',now)
+        return true
     }
-    return true
+    return false
 }
-// MS GRAPH 登录
-async function login() {
+// MS GRAPH 登录链接
+async function get_auth_url() {
     const login= await is_login()
     if(login===true){
         return true
@@ -35,14 +44,22 @@ async function login() {
     }
     const res = await request(url, opt);
     console.log(res);
-    let tabControl = GM_openInTab(res.auth_url);
+    return res.auth_url
+    
+}
+
+// MS GRAPH login
+async function login() {
+    const url=await get_auth_url()
+    let tabControl = GM_openInTab(url);
     tabControl.onclose = function(){
-        
+        let has_login=await is_login()
+        if(has_login===true){
+            GM_setValue('login_time',new Date().getTime())
+        }
+
     };
-    if(res.msg==='NOT_LOGIN'){
-        return false
-    }
-    return true
+    
 }
 
 
