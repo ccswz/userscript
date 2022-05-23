@@ -162,5 +162,7 @@ function request(url, opt = {}) {
         opt.onerror = opt.ontimeout = reject
         opt.onload = resolve
         GM_xmlhttpRequest(opt)
-    })
+    }).catch( error => {
+        console.log('error', error)
+     });
 }
