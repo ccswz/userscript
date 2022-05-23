@@ -10,6 +10,24 @@ const HOST_DOC = "http://172.28.176.20:8000";
 // MS GRAPH ,TO-DO 及日历服务器地址
 const HOST_TODO = 'https://helper.t0t0.top:60816'
 
+// 计算日历日
+async function add_day(start,how){
+    const url=HOST_TODO+"/cal/day_end?start="+start+"&how="+how
+    const res=await get(url)
+    if (res.message==='ok') {
+       return res.end 
+    }
+}
+// 计算工作日
+async function add_workingday(start,how){
+    const url=HOST_TODO+"/cal/workingday_end?start="+start+"&how="+how
+    const res=await get(url)
+    if (res.message==='ok') {
+       return res.end 
+    }
+}
+
+
 
 // MS GRAPH 是否已经登录
 async function is_login() {
@@ -18,12 +36,8 @@ async function is_login() {
     if(now-login_time<=1000*60*60*24){
         return true
     }
-
-    const url = HOST_TODO + "msgraph/is_login";
-    const opt = {
-        method: 'GET',
-    }
-    const res = await request(url, opt);
+    const url = HOST_TODO + "/msgraph/is_login";
+    const res = await get(url);
     console.log(res);
     if(res.msg==='LOGIN'){
         GM_setValue('login_time',now)
@@ -31,6 +45,7 @@ async function is_login() {
     }
     return false
 }
+
 // MS GRAPH 登录链接
 async function get_auth_url() {
     const login= await is_login()
@@ -38,11 +53,8 @@ async function get_auth_url() {
         return true
     }
     //获取登录连接
-    const url = HOST_TODO + "msgraph/login";
-    const opt = {
-        method: 'GET',
-    }
-    const res = await request(url, opt);
+    const url = HOST_TODO + "/msgraph/login";
+    const res = await get(url);
     console.log(res);
     return res.auth_url
     
@@ -57,9 +69,7 @@ async function login() {
         if(has_login===true){
             GM_setValue('login_time',new Date().getTime())
         }
-
     };
-    
 }
 
 
@@ -72,16 +82,9 @@ async function login() {
 //     "reminderbefore": 1440
 // }
 async function add_event(data) {
-    const url = HOST_TODO + "msgraph/event";
-    const opt = {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        },
-        data: JSON.stringify(data)
-    }
-    const res = await request(url, opt);
-    console.log(res);
+    const url = HOST_TODO + "/msgraph/event";
+    const res = await post(url, data);
+    // console.log(res);
     return res
 }
 
@@ -94,16 +97,9 @@ async function add_event(data) {
 //     "dueDateTime": "2022-3-15T12:01"
 // }
 async function add_todo(data) {
-    const url = HOST_TODO + "msgraph/event";
-    const opt = {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/json; charset=UTF-8"
-        },
-        data: JSON.stringify(data)
-    }
-    const res = await request(url, opt);
-    console.log(res);
+    const url = HOST_TODO + "/msgraph/event";
+    const res = await post(url, data);
+    // console.log(res);
     return res
 }
 
@@ -123,6 +119,23 @@ async function add_todo(data) {
 // }
 async function create_doc(data) {
     const url = HOST_DOC + "/doc";
+    const res = await post(url, data);
+    // console.log(res);
+    window.open(res.response.url, '_blank');
+}
+
+
+
+// get
+async function get(url){
+    const opt = {
+        method: 'GET',
+    }
+    return await request(url, opt);
+}
+
+// post
+async function post(url,data){
     const opt = {
         method: 'POST',
         headers: {
@@ -130,11 +143,8 @@ async function create_doc(data) {
         },
         data: JSON.stringify(data)
     }
-    const res = await request(url, opt);
-    console.log(res);
-    window.open(res.response.url, '_blank');
+    return await request(url, opt);
 }
-
 
 
 
