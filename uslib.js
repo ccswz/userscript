@@ -40,7 +40,7 @@ async function is_login() {
     const url = HOST_TODO + "/msgraph/is_login";
     const res = await get(url);
     console.log(res);
-    if(res.msg==='LOGIN'){
+    if(res.msg==='login'){
         GM_setValue('login_time',now)
         return true
     }
@@ -122,7 +122,7 @@ async function create_doc(data) {
     const url = HOST_DOC + "/doc";
     const res = await post(url, data);
     // console.log(res);
-    window.open(res.response.url, '_blank');
+    window.open(res.url, '_blank');
 }
 
 
