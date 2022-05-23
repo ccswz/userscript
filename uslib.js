@@ -64,7 +64,7 @@ async function get_auth_url() {
 async function login() {
     const url=await get_auth_url()
     let tabControl = GM_openInTab(url);
-    tabControl.onclose = function(){
+    tabControl.onclose =async function(){
         let has_login=await is_login()
         if(has_login===true){
             GM_setValue('login_time',new Date().getTime())
