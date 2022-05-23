@@ -131,7 +131,8 @@ async function get(url){
     const opt = {
         method: 'GET',
     }
-    return await request(url, opt);
+    const res= await request(url, opt);
+    return res.response
 }
 
 // post
@@ -143,7 +144,8 @@ async function post(url,data){
         },
         data: JSON.stringify(data)
     }
-    return await request(url, opt);
+    const res= await request(url, opt);
+    return res.response
 }
 
 
