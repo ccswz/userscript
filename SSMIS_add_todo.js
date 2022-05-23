@@ -27,7 +27,10 @@
 
     const em = '<button id="us_todo" type="button" class="btn btn-primary btn-sm" style="margin-right:15px;">添加到个人备忘</button>'
     $('#prev_btn').before(em)
-    $('#us_todo').click(add_todo(data))
+    $('#us_todo').click(async function () {
+        let res = await add_todo(data)
+        console.log(res)
+    })
 
     if (await is_login() === true) {
         console.log('已登录')

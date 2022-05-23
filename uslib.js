@@ -1,4 +1,5 @@
 // userscript 常用函数库
+// version 0.0.1
 // @grant GM_xmlhttpRequest
 // @grant GM_openInTab
 // @grant GM_setValue
@@ -97,7 +98,7 @@ async function add_event(data) {
 //     "dueDateTime": "2022-3-15T12:01"
 // }
 async function add_todo(data) {
-    const url = HOST_TODO + "/msgraph/event";
+    const url = HOST_TODO + "/msgraph/task";
     const res = await post(url, data);
     // console.log(res);
     return res
