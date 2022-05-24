@@ -93,11 +93,7 @@
             top.layer.msg('3天提醒成功')
         }
 
-        let res3m = await add_todo(data3m)
-        if (res3m.id !== undefined) {
-            top.layer.msg('3个月提醒成功')
-        }
-
+        
         let res18wd = await add_todo(data18wd)
         if (res18wd.id !== undefined) {
             top.layer.msg('18工作日提醒成功')
@@ -107,7 +103,11 @@
         if (res20wd.id !== undefined) {
             top.layer.msg('20工作日提醒成功')
         }
-            
+        
+        let res3m = await add_todo(data3m)
+        if (res3m.id !== undefined) {
+            top.layer.msg('3个月提醒成功')
+        }
         
     }
 
