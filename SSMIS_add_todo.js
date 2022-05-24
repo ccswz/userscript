@@ -2,7 +2,7 @@
 // @name         SSMIS_add_todo
 // @namespace    Violentmonkey Scripts
 // @match        http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
-// @version      20220523
+// @version      20220524
 // @author       -
 // @description  2022-05-23 22:34:10
 // @require      https://cdn.bootcdn.net/ajax/libs/moment.js/2.18.1/moment.min.js
