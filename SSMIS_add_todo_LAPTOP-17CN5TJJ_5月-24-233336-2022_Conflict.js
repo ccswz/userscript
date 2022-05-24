@@ -37,13 +37,6 @@
         const ship_name_cn = $('#cspname').val()
         // ship name english
         const ship_name_en = $('#spname').val()
-
-        if (ship_name_cn === '' ) {
-            ship_name_cn=ship_name_en
-        }
-            
-        
-
         // survey item
         const survey_item = $($('textarea')[0]).text()
         // issue date
@@ -66,45 +59,45 @@
 
         let data3d = {
             "title": ship_name_cn +' 72小时' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
+            "body": ship_name_en+'\n 发证日期('+issue_date+')\n检验项目'+survey_item,
             "reminderDateTime":end_day3d+  "T09:00",
             "dueDateTime": end_day3d+"T17:00"
         }
         let data3m = {
             "title": ship_name_cn +' 3个月归档' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
+            "body": ship_name_en+'\n 发证日期('+issue_date+')\n检验项目'+survey_item,
             "reminderDateTime":end_day3m+  "T09:00",
             "dueDateTime": end_day3m+"T17:00"
         }
         let data18wd = {
             "title": ship_name_cn +' 18工作日' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
+            "body": ship_name_en+'\n 发证日期('+issue_date+')\n检验项目'+survey_item,
             "reminderDateTime":end_workingday18d+  "T09:00",
             "dueDateTime": end_workingday18d+"T17:00"
         }
         let data20wd = {
             "title": ship_name_cn +' 20工作日' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目:'+survey_item,
+            "body": ship_name_en+'\n 发证日期('+issue_date+')\n检验项目'+survey_item,
             "reminderDateTime":end_workingday20d+  "T09:00",
             "dueDateTime": end_workingday20d+"T17:00"
         }
         let res3d = await add_todo(data3d)
-        if (res3d.id !== undefined) {
+        if (res3d.status === 200) {
             top.layer.msg('3天提醒成功')
         }
 
         let res3m = await add_todo(data3m)
-        if (res3m.id !== undefined) {
+        if (res3m.status === 200) {
             top.layer.msg('3个月提醒成功')
         }
 
         let res18wd = await add_todo(data18wd)
-        if (res18wd.id !== undefined) {
+        if (res18wd.status === 200) {
             top.layer.msg('18工作日提醒成功')
         }
 
         let res20wd = await add_todo(data20wd)
-        if (res20wd.id !== undefined) {
+        if (res20wd.status === 200) {
             top.layer.msg('20工作日提醒成功')
         }
             
