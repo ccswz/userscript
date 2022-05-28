@@ -2,6 +2,7 @@
 // @name         SSMIS_add_todo
 // @namespace    Violentmonkey Scripts
 // @match        http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
+// @match        http://ssmis2018.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
 // @version      20220524
 // @author       -
 // @description  2022-05-23 22:34:10
@@ -63,51 +64,65 @@
         const end_workingday20d = await add_workingday(issue_date, 20)
 
         
+        function gen_task_data(day,desc){
+            return {
+                "title": ship_name_cn +" "+ desc,
+                "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
+                "reminderDateTime":day+  "T09:00",
+                "dueDateTime": day+"T17:00"
+            }
+        }
+        function gen_event_data(day,desc){
+            return {
+                "subject": ship_name_cn +" "+ desc,
+                "start": day+"T08:00",
+                "end": day+"T19:00",
+                "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
+                "reminderbefore": 1440
+            }
+        }
 
-        let data3d = {
-            "title": ship_name_cn +' 72小时' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
-            "reminderDateTime":end_day3d+  "T09:00",
-            "dueDateTime": end_day3d+"T17:00"
-        }
-        let data3m = {
-            "title": ship_name_cn +' 3个月归档' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
-            "reminderDateTime":end_day3m+  "T09:00",
-            "dueDateTime": end_day3m+"T17:00"
-        }
-        let data18wd = {
-            "title": ship_name_cn +' 18工作日' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
-            "reminderDateTime":end_workingday18d+  "T09:00",
-            "dueDateTime": end_workingday18d+"T17:00"
-        }
-        let data20wd = {
-            "title": ship_name_cn +' 20工作日' ,
-            "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目:'+survey_item,
-            "reminderDateTime":end_workingday20d+  "T09:00",
-            "dueDateTime": end_workingday20d+"T17:00"
-        }
-        let res3d = await add_todo(data3d)
-        if (res3d.id !== undefined) {
-            top.layer.msg('3天提醒成功')
+        let res3d_task = await add_todo(gen_task_data(end_day3d,'72小时'))
+        if (res3d_task.id !== undefined) {
+            top.layer.msg('3天提醒成功(微软待办)')
         }
 
         
-        let res18wd = await add_todo(data18wd)
-        if (res18wd.id !== undefined) {
-            top.layer.msg('18工作日提醒成功')
+        let res18wd_task = await add_todo(gen_task_data(end_workingday18d,'18工作日'))
+        if (res18wd_task.id !== undefined) {
+            top.layer.msg('18工作日提醒成功(微软待办)')
         }
 
-        let res20wd = await add_todo(data20wd)
-        if (res20wd.id !== undefined) {
-            top.layer.msg('20工作日提醒成功')
+        let res20wd_task = await add_todo(gen_task_data(end_workingday20d,'20工作日'))
+        if (res20wd_task.id !== undefined) {
+            top.layer.msg('20工作日提醒成功(微软待办)')
         }
         
-        let res3m = await add_todo(data3m)
-        if (res3m.id !== undefined) {
-            top.layer.msg('3个月提醒成功')
+        let res3m_task = await add_todo(gen_task_data(end_day3m,'3个月归档'))
+        if (res3m_task.id !== undefined) {
+            top.layer.msg('3个月归档提醒成功(微软待办)')
         }
+
+        let res3d_event = await add_event(gen_event_data(end_day3d,'72小时'))
+        if (res3d_event.id !== undefined) {
+            top.layer.msg('3天提醒成功(微软日历)')
+        }
+
+        let res18wd_event = await add_event(gen_event_data(end_workingday18d,'18工作日'))
+        if (res18wd_event.id !== undefined) {
+            top.layer.msg('18工作日提醒成功(微软日历)')
+        }
+
+        let res20wd_event = await add_event(gen_event_data(end_workingday20d,'20工作日'))
+        if (res20wd_event.id !== undefined) {
+            top.layer.msg('20工作日提醒成功(微软日历)')
+        }
+
+        let res3m_event = await add_event(gen_event_data(end_day3m,'3个月归档'))
+        if (res3m_event.id !== undefined) {
+            top.layer.msg('3个月归档提醒成功(微软日历)')
+        }
+
         
     }
 

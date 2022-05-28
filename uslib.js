@@ -60,6 +60,15 @@ async function get_auth_url() {
     return res.auth_url
     
 }
+async function ms_logout() {
+    
+    //获取登录连接
+    const url = HOST_TODO + "/msgraph/logout";
+    const res = await get(url);
+    console.log(res);
+    return res.auth_url
+    
+}
 
 // MS GRAPH login
 async function login() {
