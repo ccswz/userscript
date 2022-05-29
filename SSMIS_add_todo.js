@@ -23,8 +23,11 @@
 
     const em = '<button id="us_todo" type="button" class="btn btn-primary btn-sm" style="margin-right:15px;">添加到个人备忘</button>'
     $('#prev_btn').before(em)
+    const em1 = '<button id="us_logout" type="button" class="btn btn-warm btn-sm" style="margin-right:15px;">退出</button>'
+    $('#prev_btn').before(em1)
 
     $('#us_todo').click(ssmis_add_todo)
+    $('#us_logout').click(logout)
 
     if (await is_login() === true) {
         console.log('已登录')

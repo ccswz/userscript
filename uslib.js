@@ -60,14 +60,25 @@ async function get_auth_url() {
     return res.auth_url
     
 }
-async function ms_logout() {
+// MS GRAPH 注销链接
+async function get_logout_url() {
+        
+    const url = HOST_TODO + "/msgraph/logout?josn=1";
+    const res = await get(url);
+    return res.url
+}
+// MS GRAPH 注销
+async function logout() {
     
     //获取登录连接
-    const url = HOST_TODO + "/msgraph/logout";
-    const res = await get(url);
-    console.log(res);
-    return res.auth_url
-    
+    const url = await get_logout_url();
+    let tabControl = GM_openInTab(url);
+    tabControl.onclose =async function(){
+        let has_login=await is_login()
+        if(has_login===false){
+            GM_setValue('login_time',0)
+        }
+    };
 }
 
 // MS GRAPH login
