@@ -70,6 +70,7 @@ async function get_logout_url() {
 // MS GRAPH 注销
 async function logout() {
     
+    GM_setValue('login_time',0)
     //获取登录连接
     const url = await get_logout_url();
     let tabControl = GM_openInTab(url);

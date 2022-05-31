@@ -78,8 +78,8 @@
         function gen_event_data(day,desc){
             return {
                 "subject": ship_name_cn +" "+ desc,
-                "start": day+"T08:00",
-                "end": day+"T19:00",
+                "start": day+"T09:00",
+                "end": day+"T17:00",
                 "body": ship_name_en+'\n 发证日期: '+issue_date+'\n检验项目: '+survey_item,
                 "reminderbefore": 1440
             }
