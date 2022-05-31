@@ -3,7 +3,7 @@
 // @namespace    Violentmonkey Scripts
 // @match        http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
 // @match        http://ssmis2018.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
-// @version      20220529
+// @version      20220531
 // @author       -
 // @description  2022-05-23 22:34:10
 // @require      https://cdn.bootcdn.net/ajax/libs/moment.js/2.18.1/moment.min.js
@@ -14,20 +14,22 @@
 // @grant        GM_openInTab
 // @grant        GM_setValue
 // @grant        GM_getValue
+// @grant        unsafeWindow
 // ==/UserScript==
 
 (async function () {
     //code here
 
-    
+    unsafeWindow.logout = logout
 
     const em = '<button id="us_todo" type="button" class="btn btn-primary btn-sm" style="margin-right:15px;">添加到个人备忘</button>'
     $('#prev_btn').before(em)
-    const em1 = '<button id="us_logout" type="button" class="btn btn-warm btn-sm" style="margin-right:15px;">退出</button>'
-    $('#prev_btn').before(em1)
-
     $('#us_todo').click(ssmis_add_todo)
-    $('#us_logout').click(logout)
+
+    // const em1 = '<button id="us_logout" type="button" class="btn btn-warm btn-sm" style="margin-right:15px;">退出</button>'
+    // $('#prev_btn').before(em1)
+    // $('#us_logout').click(logout)
+
 
     if (await is_login() === true) {
         console.log('已登录')

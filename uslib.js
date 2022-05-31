@@ -104,6 +104,9 @@ async function login() {
 //     "reminderbefore": 1440
 // }
 async function add_event(data) {
+    if(await is_login()===false){
+        await login()
+    }
     const url = HOST_TODO + "/msgraph/event";
     const res = await post(url, data);
     // console.log(res);
@@ -119,6 +122,9 @@ async function add_event(data) {
 //     "dueDateTime": "2022-3-15T12:01"
 // }
 async function add_todo(data) {
+    if(await is_login()===false){
+        await login()
+    }
     const url = HOST_TODO + "/msgraph/task";
     const res = await post(url, data);
     // console.log(res);
