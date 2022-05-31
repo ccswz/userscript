@@ -63,7 +63,7 @@ async function get_auth_url() {
 // MS GRAPH 注销链接
 async function get_logout_url() {
         
-    const url = HOST_TODO + "/msgraph/logout?josn=1";
+    const url = HOST_TODO + "/msgraph/logout?json=1";
     const res = await get(url);
     return res.url
 }
