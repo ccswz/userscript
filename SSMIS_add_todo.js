@@ -6,10 +6,10 @@
 // @version      20220531
 // @author       -
 // @description  2022-05-23 22:34:10
-// @require      https://cdn.bootcdn.net/ajax/libs/moment.js/2.18.1/moment.min.js
-// @require      http://git.t0t0.top:60887/chenjun/userscript/raw/master/uslib.js
-// @updateURL    http://git.t0t0.top:60887/chenjun/userscript/raw/master/SSMIS_add_todo.js
-// @downloadURL  http://git.t0t0.top:60887/chenjun/userscript/raw/master/SSMIS_add_todo.js
+// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
+// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
+// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_add_todo.js
+// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_add_todo.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_openInTab
 // @grant        GM_setValue
