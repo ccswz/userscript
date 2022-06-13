@@ -182,7 +182,7 @@ async function post(url,data){
 function request(url, opt = {}) {
     Object.assign(opt, {
         url,
-        timeout: 20000,
+        timeout: 10000,
         responseType: 'json'
     })
     return new Promise((resolve, reject) => {
