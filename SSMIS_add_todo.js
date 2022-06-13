@@ -3,7 +3,7 @@
 // @namespace    Violentmonkey Scripts
 // @match        http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
 // @match        http://ssmis2018.ccs.org.cn/ssmis//ss/ssSurveyBr/surveyBrInfo*
-// @version      20220613
+// @version      20220614
 // @author       -
 // @description  2022-05-23 22:34:10
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
