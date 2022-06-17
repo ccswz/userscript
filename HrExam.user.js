@@ -3,6 +3,7 @@
 // @namespace Violentmonkey Scripts
 // @version      20210616
 // @match http://apptest.ccs.org.cn/ccsic/exam/examQuestion*
+// @match http://10.1.5.149:8080/ccsic/exam/examQuestion*
 // @updateURL    https://gitee.com/last2003/userscript/raw/master/HrExam.user.js
 // @downloadURL  https://gitee.com/last2003/userscript/raw/master/HrExam.user.js
 // @grant none
