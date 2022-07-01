@@ -9,7 +9,8 @@
 const HOST_DOC = "http://172.28.176.20:8000";
 
 // MS GRAPH ,TO-DO 及日历服务器地址
-const HOST_TODO = 'https://helper.t0t0.top:60816'
+//const HOST_TODO = 'https://helper.t0t0.top:60816'
+const HOST_TODO = 'https://api.ccswz.top:10000'
 
 // 计算日历日
 async function add_day(start,how){
@@ -182,7 +183,7 @@ async function post(url,data){
 function request(url, opt = {}) {
     Object.assign(opt, {
         url,
-        timeout: 20000,
+        timeout: 10000,
         responseType: 'json'
     })
     return new Promise((resolve, reject) => {
