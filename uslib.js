@@ -6,7 +6,8 @@
 // @grant GM_getValue
 
 // 请求模板文件 doc 服务器地址
-const HOST_DOC = "http://172.28.176.20:8000";
+// const HOST_DOC = "http://172.28.176.20:8000";
+const HOST_DOC = "https://api.ccswz.top:10000";
 
 // MS GRAPH ,TO-DO 及日历服务器地址
 //const HOST_TODO = 'https://helper.t0t0.top:60816'
