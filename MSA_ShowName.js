@@ -4,7 +4,7 @@
 // @match        http://cmp.msa.gov.cn/simis-web//sys/oifi/retrieveFieldInspection.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/cert/retrieveOriginalPrint.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/archive/initArchiveMain.action*
-// @version      20221009
+// @version      20221010
 // @author       -
 // @description  
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
@@ -16,7 +16,7 @@
     //code here
     
     //添加自定义文件按钮
-    const em = '<a id="us_shipname" style="margin-right: 100px;float: right;"></a>'
+    const em = '<div style="margin-right: 100px;float: right;"><a id="us_shipname" ></a><a id="us_shipdetail" style="margin-left: 10px"><span class="green">详细</span></a></div>'
     $('.myhere').append(em)
 
     const url = new URL(decodeURI(document.URL))
@@ -56,7 +56,15 @@
             
             openComplementFun('http://cmp.msa.gov.cn:80/simis-web/',workno,funcId,applicantOrgId,surveyNo,1,stepId)
         })
+
+    $('#us_shipdetail').click(function (){
+        let  url = "http://cmp.msa.gov.cn/simis-web/sys/workInfoTree/initWorkInfo.action";
+        const params = "type=cb&funId=CX0707&no="+shipInsRegNo
+        url = url + "?" + params + "&r_=" + Math.random();
+        open(url, "_blank");
+    })
         
+
         getShipNameByRegNo(shipInsRegNo)
 
 
