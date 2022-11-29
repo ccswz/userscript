@@ -3,9 +3,9 @@
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
-// @updateURL    https://gitee.com/last2003/userscript/raw/master/ProductData.user.js
-// @downloadURL  https://gitee.com/last2003/userscript/raw/master/ProductData.user.js
-// @version 20220420
+// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
+// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
+// @version 20221129
 // @grant unsafeWindow
 
 
@@ -54,11 +54,14 @@
     // });
 
     //添加自定义文件按钮
-    const em1 = '<button type="button" id="us_gch" class="btn btn-sm btn-success " style="margin-right: 5px;">添加工程号</button>';
+    const em1 = '<button type="button" id="us_gch" class="btn btn-sm btn-success " style="margin-right: 5px;">变更工程号</button>';
     $('#setProBtn').before(em1)
     //添加自定义文件按钮
-    const em2 = '<button type="button" id="us_yt" class="btn btn-sm btn-success " style="margin-right: 5px;">添加用途</button>';
+    const em2 = '<button type="button" id="us_yt" class="btn btn-sm btn-success " style="margin-right: 5px;">变更用途</button>';
     $('#setProBtn').before(em2)
+    //添加自定义文件按钮
+    const em3 = '<button type="button" id="us_zdy" class="btn btn-sm btn-success " style="margin-right: 5px;">变更<自定义></button>';
+    $('#setProBtn').before(em3)
 
 
     $('#us_gch').click(function (event) {
@@ -66,6 +69,18 @@
     });
     $('#us_yt').click(function (event) {
         showInput('#txt_intendedfor');
+    });
+    $('#us_yt').click(function (event) {
+        top.layer.prompt({
+            formType: 0, //输入框类型，支持0（文本）默认1（密码）2（多行文本）
+            title: '请输入自定义内容的ID',
+            value: '', //初始时的值，默认空字符
+            maxlength: 140, //可输入文本的最大长度，默认500
+        }, function(value, index, elem){
+            showInput('#'+value);
+            top.layer.closeAll();
+        });
+
     });
 
 
