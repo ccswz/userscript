@@ -70,7 +70,7 @@
     $('#us_yt').click(function (event) {
         showInput('#txt_intendedfor');
     });
-    $('#us_yt').click(function (event) {
+    $('#us_zdy').click(function (event) {
         top.layer.prompt({
             formType: 0, //输入框类型，支持0（文本）默认1（密码）2（多行文本）
             title: '请输入自定义内容的ID',
