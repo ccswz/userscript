@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
-// @version 20221129
+// @version 20221130
 // @grant unsafeWindow
 
 
@@ -33,7 +33,7 @@
     //给textarea添加事件 增加换行符
     top.document.addEventListener('keydown', function (e) {
         if (e.target.tagName === 'TEXTAREA') {
-           
+
             if (e.keyCode === 13) {
                 e.preventDefault();
                 // console.log('haha');
@@ -78,7 +78,7 @@
             maxlength: 140, //可输入文本的最大长度，默认500
         }, function(value, index, elem){
             showInput('#'+value);
-            top.layer.closeAll();
+            // top.layer.closeAll();
         });
 
     });
@@ -98,7 +98,7 @@
             gchArr = gchArr.map(function (item) {
                 return item.trim()
             });
-            
+
             // console.log(gchArr);
             //join gch with '\n' and its index 
             let gchStr='<ol>';
@@ -117,8 +117,8 @@
                 yes:function(i,o){
                     addData({sel:sel,val_array:gchArr});
                     top.layer.closeAll();
-                    }
-              });  
+                }
+            });
 
 
             top.layer.close(index);
