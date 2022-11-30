@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
-// @version 20221130
+// @version 20221131
 // @grant unsafeWindow
 
 
@@ -54,13 +54,13 @@
     // });
 
     //添加自定义文件按钮
-    const em1 = '<button type="button" id="us_gch" class="btn btn-sm btn-success " style="margin-right: 5px;">变更工程号</button>';
+    const em1 = '<button type="button" id="us_gch" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更工程号</button>';
     $('#setProBtn').before(em1)
     //添加自定义文件按钮
-    const em2 = '<button type="button" id="us_yt" class="btn btn-sm btn-success " style="margin-right: 5px;">变更用途</button>';
+    const em2 = '<button type="button" id="us_yt" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更用途</button>';
     $('#setProBtn').before(em2)
     //添加自定义文件按钮
-    const em3 = '<button type="button" id="us_zdy" class="btn btn-sm btn-success " style="margin-right: 5px;">变更<自定义></button>';
+    const em3 = '<button type="button" id="us_zdy" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更<自定义></button>';
     $('#setProBtn').before(em3)
 
 
