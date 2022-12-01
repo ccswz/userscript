@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/ProductData.user.js
-// @version 20221131
+// @version 20221201
 // @grant unsafeWindow
 
 
@@ -96,7 +96,7 @@
             let gchArr = value.split('\n');
             //strip blank in array
             gchArr = gchArr.map(function (item) {
-                return item.trim()
+                return item.trim().replaceAll("<br>","\n");
             });
 
             // console.log(gchArr);
