@@ -40,10 +40,16 @@ OA页面一个考试系统的，基本没有在这里考试
 #### SSMIS_add_todo
 SSMIS系统营运检验中，在检验信息栏目，增加一个记事添加到微软待办（TODO）以及微软日历中
 目前添加的时间是 `72小时`，`18工作日`，`20工作日`，`3个月`
+
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_add_todo.js)
 #### SSMIS_ProductData
 SSMIS系统产品数据中，增加按钮，修改证书数据
 自定义内容的ID为需要修改的内容ID
 一行为一个证书修改,一行中的换行可以用`<br>`代替
+
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js)
 #### SSMIS_ProductTemplateGener
 SSMIS系统产品属性数据中，增加按钮，生成产品导入系统用的文件模板
 结合[template-online](https://as.ccswz.top:10000/ppsdata/template-online)使用
+
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js)
