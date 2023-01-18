@@ -44,6 +44,7 @@ SSMIS系统营运检验中，在检验信息栏目，增加一个记事添加到
 [点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_add_todo.js)
 #### SSMIS_ProductData
 SSMIS系统产品数据中，增加按钮，修改证书数据
+
 自定义内容的ID为需要修改的内容ID
 一行为一个证书修改,一行中的换行可以用`<br>`代替
 
@@ -53,3 +54,8 @@ SSMIS系统产品属性数据中，增加按钮，生成产品导入系统用的
 结合[template-online](https://as.ccswz.top:10000/ppsdata/template-online)使用
 
 [点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js)
+#### SSMIS_ProductReportDetail
+SSMISSSMIS 产品报告中产品明细的替换
+
+一行为一个参数修改,一行中的换行可以用`<br>`代替
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductReportDetail.user.js)
