@@ -4,7 +4,7 @@
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psCommon/psProductCheckReport*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psCommon/psProductCheckReport*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductReportDetail.user.js
-// @downloadURL  SSMIS_ProductData.user.js
+// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductReportDetail.user.js
 // @version 20230118
 // @grant unsafeWindow
 

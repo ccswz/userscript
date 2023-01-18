@@ -4,7 +4,7 @@
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
-// @downloadURL  SSMIS_ProductData.user.js
+// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
 // @version 20221201
 // @grant unsafeWindow
 
