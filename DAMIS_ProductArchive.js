@@ -5,7 +5,7 @@
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/DAMIS_ProductArchive.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/DAMIS_ProductArchive.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
-// @version 20221201
+// @version 20230209
 // @grant unsafeWindow
 
 // ==/UserScript==
@@ -28,7 +28,10 @@
     }
 
     function func1(){
-        $('input[value="<<<"]').click(function () {
+        const em='<input type="button" class="button" id="us_tc1" value="填充" style="margin-right: 10px;" > ';
+        $('input[value="确定"]').before(em)
+
+        $('#us_tc1').click(function () {
             fillin();
         })
         function fillin() {
