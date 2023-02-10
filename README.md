@@ -54,6 +54,8 @@ SSMIS系统产品属性数据中，增加按钮，生成产品导入系统用的
 结合[template-online](https://as.ccswz.top:10000/ppsdata/template-online)使用
 
 [点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js)
+或者配合Quicker的动作使用 [点这里去复制动作](https://getquicker.net/Sharedaction?code=06dd8e9b-a2f3-4eba-a728-08dad3f6b04c)
+注册用我的推荐码可以获得会员体验 `405276-1124`
 #### SSMIS_ProductReportDetail
 SSMISSSMIS 产品报告中产品明细的替换
 
