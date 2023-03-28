@@ -36,6 +36,14 @@ OA页面一个考试系统的，基本没有在这里考试
 #### MSA_SearchShip
 海事系统工作列表中快速搜索船舶, `/` 聚焦到搜索框,输入部分船名,`回车`搜索
 
+#### MSA_ShipParticularInput
+修正海事系统内CCS专有系统`船舶参数`保存出错的bug
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShipParticularInput.js)
+
+#### MSA_ShipInstitutional
+海事系统供方船舶监督,显示报告编号以确定年份
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShipInstitutional.js)
+
 ## SSMIS
 #### SSMIS_add_todo
 SSMIS系统营运检验中，在检验信息栏目，增加一个记事添加到微软待办（TODO）以及微软日历中
