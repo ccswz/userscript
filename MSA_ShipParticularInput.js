@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        MSA-保存船舶参数
+// @name        MSA-DSMIS 保存船舶参数
 // @namespace   Violentmonkey Scripts
 // @match       http://cmp.msa.gov.cn/simis-ccs/datainfo/datainfo!shipParticularInput.do
 // @grant       none

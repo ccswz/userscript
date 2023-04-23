@@ -69,3 +69,9 @@ SSMISSSMIS 产品报告中产品明细的替换
 
 一行为一个参数修改,一行中的换行可以用`<br>`代替
 [点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductReportDetail.user.js)
+
+#### SSMIS_ChecklistChineseTip
+SSMIS 营运检验显示checklist的中文提示
+    
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ChecklistChineseTip.user.js)
+
