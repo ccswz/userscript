@@ -148,7 +148,7 @@ async function add_todo(data) {
 //     }
 // }
 async function create_doc(data) {
-    const url = HOST_DOC + "/doc";
+    const url = HOST_DOC + "/qmdoc";
     const res = await post(url, data);
     // console.log(res);
     window.open(res.url, '_blank');

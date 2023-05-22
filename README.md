@@ -73,5 +73,5 @@ SSMISSSMIS 产品报告中产品明细的替换
 #### SSMIS_ChecklistChineseTip
 SSMIS 营运检验显示checklist的中文提示
     
-[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ChecklistChineseTip.user.js)
+[点这里安装](https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ChecklistChieseTip.user.js)
 
