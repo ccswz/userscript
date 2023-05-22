@@ -8,7 +8,7 @@
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
 // @version     20230519
-// @grant none
+// @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
 (async function () {
