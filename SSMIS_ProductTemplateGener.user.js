@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psApproval/psProductAttribute*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
-// @version 20221202
+// @version      20230803
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
 // @grant        GM_xmlhttpRequest
@@ -20,23 +20,23 @@
 
 (async function () {
     //code here
-    const host= 'http://127.0.0.1:5000';
-    // const host = 'https://as.ccswz.top:10000/';
+    // const host= 'http://127.0.0.1:5000';
+    const host = 'https://as.ccswz.top:10000/';
 
 
     //添加自定义文件按钮
     const em1 = '<button type="button" id="us_mbe" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(Excel)</button>';
-    const em2 = '<button type="button" id="us_mbo" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(在线)</button>';
+    // const em2 = '<button type="button" id="us_mbo" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(在线)</button>';
     $('button[onclick="saveInfo()"]').before(em1)
-    $('button[onclick="saveInfo()"]').before(em2)
+    // $('button[onclick="saveInfo()"]').before(em2)
 
 
     $('#us_mbe').click(async function (event) {
         await makeTplExcel();
     });
-    $('#us_mbo').click(async function (event) {
-        await makeTplOnline();
-    });
+    // $('#us_mbo').click(async function (event) {
+    //     await makeTplOnline();
+    // });
 
 
     // get data
@@ -99,19 +99,19 @@
             GM_openInTab(host + res_json.data.url);
         }
     }
-    async function makeTplOnline() {
-
-            const data = getData();
-
-            const url = host + '/ppsdata/template-mongo';
-            const res_json = await post(url, data);
-            if (res_json.status_code == 200) {
-                GM_openInTab(host + res_json.data.url);
-            }
-            else {
-                alert(res_json.message)
-            }
-    }
+    // async function makeTplOnline() {
+    //
+    //         const data = getData();
+    //
+    //         const url = host + '/ppsdata/template-mongo';
+    //         const res_json = await post(url, data);
+    //         if (res_json.status_code == 200) {
+    //             GM_openInTab(host + res_json.data.url);
+    //         }
+    //         else {
+    //             alert(res_json.message)
+    //         }
+    // }
 
 
 })();
