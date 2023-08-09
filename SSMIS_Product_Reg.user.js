@@ -2,10 +2,12 @@
 // @name         SSMIS 产品检验登记
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
-// @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
+// @match http://ssmis2018.ccs.org.cn/ssmis/ps/psProductSurvey/psRegisterApproveFrom*
+// @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*// @match http://ssmis2018.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
+// @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psProductSurvey/psRegisterApproveFrom*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Product_Reg.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Product_Reg.user.js
-// @version      20230808
+// @version      20230809
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_openInTab
