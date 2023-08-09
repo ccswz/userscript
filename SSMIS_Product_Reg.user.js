@@ -3,7 +3,7 @@
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
 // @match http://ssmis2018.ccs.org.cn/ssmis/ps/psProductSurvey/psRegisterApproveFrom*
-// @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*// @match http://ssmis2018.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
+// @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psProductSurvey/psRegisterApproveFrom*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psProductSurvey/psRegisterApproveFrom*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Product_Reg.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Product_Reg.user.js
