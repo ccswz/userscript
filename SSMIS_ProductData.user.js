@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
-// @version 20221201
+// @version 20230811
 // @grant unsafeWindow
 
 
@@ -60,8 +60,11 @@
     const em2 = '<button type="button" id="us_yt" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更用途</button>';
     $('#setProBtn').before(em2)
     //添加自定义文件按钮
-    const em3 = '<button type="button" id="us_zdy" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更<自定义></button>';
+    const em3 = '<button type="button" id="us_bz" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更备注</button>';
     $('#setProBtn').before(em3)
+    //添加自定义文件按钮
+    const em9 = '<button type="button" id="us_zdy" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更<自定义></button>';
+    $('#setProBtn').before(em9)
 
 
     $('#us_gch').click(function (event) {
@@ -69,6 +72,9 @@
     });
     $('#us_yt').click(function (event) {
         showInput('#txt_intendedfor');
+    });
+    $('#us_bz').click(function (event) {
+        showInput('#txt_remarks');
     });
     $('#us_zdy').click(function (event) {
         top.layer.prompt({
