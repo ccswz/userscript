@@ -206,9 +206,18 @@
                 // console.log(theForm);
                 // console.log(theForm.serialize());
                 $.post(post_url, theForm.serialize(), function (data, status) {
+                    const u= new URL(url,document.location.origin);
+                    const certNo = u.searchParams.get('certNo');
                     console.log('------------------------------------');
                     console.log(url);
                     console.log(data);
+                    // console.log(`证书编号：${certNo} : ${data.result}`);
+                    if(layer!=undefined){
+                        layer.msg(`证书编号：${certNo} : OK`);
+                    }
+                    else {
+                        top.layer.msg(`证书编号：${certNo} : OK}`);
+                    }
                 });
             });
         };
