@@ -7,11 +7,11 @@
 // @downloadURL https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_CreateReport_KB.user.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
-// @version     20230519
+// @version     20230821
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
 
-(async function () {
+(function () {
     'use strict';
 
     // Insert your code here...
@@ -20,7 +20,7 @@
 
     $('#us_bg_kb').click(create_kb_report)
 
-    async function create_kb_report(){
+    function create_kb_report(){
         //船舶参数
         //船名
         let ship_name = $('#theForm > div.panel.layout-panel.layout-panel-north > div > div.ui_panel_tit > h2 > u:nth-child(3)').text().trim();
@@ -33,7 +33,7 @@
         let class_no = $('#theForm > div.panel.layout-panel.layout-panel-north > div > div.ui_panel_tit > h2 > u:nth-child(5)').text().trim()
 
         //surveyor
-        let surveyor=$('#reviewAssignUsers4Common').text().replace(/\(H\)/g, '').replace(/\(M\/E\)/g, '')
+        let surveyor=$('#reviewAssignUsers4Common').text().replace(/\(H\)/g, '').replace(/\(M\/E\)/g, '').replace(/\(H\/M\/E\)/g, '')
 
         //完成日期
         let date = $('#survey_process > div > div:nth-child(7) > div > table > tbody > tr:nth-child(2) > td:nth-child(2)').text().trim()
@@ -46,14 +46,11 @@
         }
 
         // moment.js add 3 month and sub 1 day with issue date
-        const date_complete = moment(date).format('YYYY年MM月DD日')
-        let data={ship_name,jobno_ccs,register_no,class_no,date_complete,surveyor}
-        await create_doc({
-            "ctx":data,
-            "jobno": job_no,
-            "name": "KB",
-            "where": "csc"
-        })
+        const date_complete = moment(date).format('YYYY-MM-DD')
+        const data={ship_name,jobno_ccs,register_no,class_no,date_complete,surveyor}
+        const data_jsonstr=JSON.stringify(data)
+        const url=`https://as.ccswz.top:10000/qmdoc-online?jobno=${job_no}&where=csc&ctx=${data_jsonstr}`
+        window.open(url)
     }
 
 
