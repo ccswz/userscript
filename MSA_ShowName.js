@@ -4,7 +4,7 @@
 // @match        http://cmp.msa.gov.cn/simis-web//sys/oifi/retrieveFieldInspection.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/cert/retrieveOriginalPrint.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/archive/initArchiveMain.action*
-// @version      20221010
+// @version      20230821
 // @author       -
 // @description  
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
@@ -27,8 +27,8 @@
     const applicantOrgId = url.searchParams.get('applicantOrgId')
     const shipInsRegNo = url.searchParams.get('shipInsRegNo')
 
-    const jobNo = workno.substring(2,6)+workno.substring(0,2)+workno.substring(6)
-    
+    // const jobNo = workno.substring(2,6)+workno.substring(0,2)+workno.substring(6)
+    const jobNo = $('#jobNo').val()
     $('#us_shipname').click(function (){
         //get url from document
         //get workno from url
