@@ -28,7 +28,7 @@
     const shipInsRegNo = url.searchParams.get('shipInsRegNo')
 
     // const jobNo = workno.substring(2,6)+workno.substring(0,2)+workno.substring(6)
-    const jobNo = $('#jobNo').val()
+    const jobNo = $('#surveyNo').val()
     $('#us_shipname').click(function (){
         //get url from document
         //get workno from url
