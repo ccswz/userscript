@@ -4,9 +4,9 @@
 // @match        http://cmp.msa.gov.cn/simis-web//sys/oifi/retrieveFieldInspection.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/cert/retrieveOriginalPrint.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/archive/initArchiveMain.action*
-// @version      20230821
+// @version      20230822
 // @author       -
-// @description  
+// @description
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
 // @grant        unsafeWindow
@@ -14,7 +14,7 @@
 
 (function () {
     //code here
-    
+
     //添加自定义文件按钮
     const em = '<div style="margin-right: 100px;float: right;"><a id="us_shipname" ></a><a id="us_shipdetail" style="margin-left: 10px"><span class="green">详细</span></a></div>'
     $('.myhere').append(em)
@@ -28,7 +28,13 @@
     const shipInsRegNo = url.searchParams.get('shipInsRegNo')
 
     // const jobNo = workno.substring(2,6)+workno.substring(0,2)+workno.substring(6)
-    const jobNo = $('#surveyNo').val()
+    //正本打印时
+    let jobNo = $('#surveyNo').val()
+    //现场检验时
+    if(jobNo==undefined){
+        jobNo=$('a[onclick="changeHelp(\'9999003\');"]').attr('data').match(/surveyNo=([^&]*)/)[1];
+    }
+
     $('#us_shipname').click(function (){
         //get url from document
         //get workno from url
@@ -51,9 +57,9 @@
             funcId = 'CCS106'
         }else if(stepName=='文件归档'){
             funcId = 'CCS107'
-        
+
         }
-            
+
             openComplementFun('http://cmp.msa.gov.cn:80/simis-web/',workno,funcId,applicantOrgId,surveyNo,1,stepId)
         })
 
@@ -63,14 +69,14 @@
         url = url + "?" + params + "&r_=" + Math.random();
         open(url, "_blank");
     })
-        
+
 
         getShipNameByRegNo(shipInsRegNo)
 
 
-    
 
-    
+
+
     //根据船检登记号 regno ，获取船舶船名信息
     function getShipNameByRegNo(regno) {
         // console.log("getShipNameByRegNo");
@@ -88,7 +94,7 @@
                 $('#us_shipname').html('<span class="green">'+shipName+' ('+jobNo+')</span>');
             });
     }
-    
+
     function openComplementFun(basePath,workno,funcId,orgId,surveyNo,hasAuthEdit,stepId){
 		var funUrl = null;
 		var url = basePath + "sys/common/getFuncUrl.action";
@@ -103,17 +109,17 @@
 			error:function(){
 			}
 		});
-    	
+
     	if(funUrl == null || funUrl == ""){
     		commonTip("打开功能失败：功能地址不存在",1);
     		return;
     	}
-    	
+
     	if(funUrl.length < 6){
     		commonTip("打开功能失败：" + funUrl,1);
     		return;
     	}
-    	
+
     	if(funUrl.substr(0,6) == "error:"){
     		var msgcon = funUrl.substring(6,funUrl.length);
     		commonTip("打开功能失败：" + msgcon,1);
