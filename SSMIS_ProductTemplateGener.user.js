@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psApproval/psProductAttribute*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
-// @version      20230803
+// @version      20230804
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
 // @grant        GM_xmlhttpRequest
@@ -93,7 +93,7 @@
 
         const data = getData();
 
-        const url = host + '/ppsdata/template-online';
+        const url = host + '/ppsdata/template-online-1file';
         const res_json = await post(url, data);
         if (res_json.status_code == 200) {
             GM_openInTab(host + res_json.data.url);
