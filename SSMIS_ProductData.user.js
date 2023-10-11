@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductData.user.js
-// @version 20230811
+// @version 20231011
 // @grant unsafeWindow
 
 
@@ -52,6 +52,11 @@
     //         return true;
     //     }
     // });
+
+    //输出PDF(后台)
+    const em0 = '<button type="button" onclick="finishEditStatus(\'0\');top.layer.closeAll();layer.msg(\'证书生成PDF将在后台运行\')" class="btn btn-sm btn-warning " style="margin: 5px;">输出PDF(后台)</button>';
+    $('#finishEditStatusBtn').after(em0)
+
 
     //添加自定义文件按钮
     const em1 = '<button type="button" id="us_gch" class="btn btn-sm btn-warning " style="margin-right: 5px;">变更工程号</button>';
@@ -106,7 +111,7 @@
             });
 
             // console.log(gchArr);
-            //join gch with '\n' and its index 
+            //join gch with '\n' and its index
             let gchStr='<ol>';
             for (let i = 0; i < gchArr.length; i++) {
                 let gch = gchArr[i];
