@@ -5,7 +5,7 @@
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psApproval/psProductAttribute*
 // @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
 // @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
-// @version      20230804
+// @version      20231205
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
 // @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
 // @grant        GM_xmlhttpRequest
@@ -21,7 +21,8 @@
 (async function () {
     //code here
     // const host= 'http://127.0.0.1:5000';
-    const host = 'https://as.ccswz.top:10000/';
+    // const host = 'https://as.ccswz.top:10000/';
+    const host = 'https://pps.ccswz.top';
 
 
     //添加自定义文件按钮
@@ -93,7 +94,8 @@
 
         const data = getData();
 
-        const url = host + '/ppsdata/template-online-1file';
+        // const url = host + '/ppsdata/template-online-1file';
+        const url = host + '/api-tplfile';
         const res_json = await post(url, data);
         if (res_json.status_code == 200) {
             GM_openInTab(host + res_json.data.url);
