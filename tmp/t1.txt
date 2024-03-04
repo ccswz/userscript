@@ -1,0 +1,13 @@
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=addFile&usertableid=6223FDC875E68E2C4EAF26BF57DFD5DB&gdOrdgd=dgd&physicsName=T_6223FDC875E68&fileid=DAA88C96D19C28D15CA8C24ED9E4BD2B&filemode=modify&showPosition=yes
+
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=search&tblType=2&sortStr=&usertableid=6223FDC875E68E2C4EAF26BF57DFD5DB&ajId=65B68B8384ABA4E4A549796025DFF0F9&gdOrdgd=dgd
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=addFile&usertableid=6223FDC875E68E2C4EAF26BF57DFD5DB&gdOrdgd=dgd&physicsName=T_6223FDC875E68&fileid=63C67B3E9F72C135593F87A1A955FA90&filemode=modify&showPosition=yes
+
+
+
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=addFile&usertableid=53D532CDF8E01D1EB23D94BC9C04882E&gdOrdgd=dgd&physicsName=T_53D532CDF8E01&fileid=65B68B8384ABA4E4A549796025DFF0F9&filemode=modify&showPosition=yes
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=addFile&usertableid=53D532CDF8E01D1EB23D94BC9C04882E&gdOrdgd=dgd&physicsName=T_53D532CDF8E01&fileid=A679EEDABE51838060617636A40F8414&filemode=modify&showPosition=yes
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=addFile&usertableid=53D532CDF8E01D1EB23D94BC9C04882E&gdOrdgd=dgd&physicsName=T_53D532CDF8E01&fileid=454A208F3F4C177AAF50BF8B75FB20D8&filemode=modify&showPosition=yes
+
+view-source:http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=search
+

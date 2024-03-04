@@ -148,9 +148,10 @@ async function add_todo(data) {
 //     }
 // }
 async function create_doc(data) {
-    const url = HOST_DOC + "/qmdoc";
+    // const url = HOST_DOC + "/qmdoc";
+    const url = 'https://api.ccswz.top/api/qmdoc';;
     const res = await post(url, data);
-    // console.log(res);
+    console.log(res);
     window.open(res.url, '_blank');
 }
 
