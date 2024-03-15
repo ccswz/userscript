@@ -155,7 +155,13 @@ async function create_doc(data) {
     window.open(res.url, '_blank');
 }
 
-
+//   get the prameters from csc
+async function get_csc_prameters(job_no) {
+    const url = "https://api.ccswz.top/api/info/api-csc/jobno/"+job_no;
+    const res = await request(url);
+    console.log(res);
+    return res.response.data[0];
+  }
 
 // get
 async function get(url){
