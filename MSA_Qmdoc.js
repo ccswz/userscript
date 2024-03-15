@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name MSA-DSMIS Qmdoc
 // @namespace Violentmonkey Scripts
-// @version 20240314
+// @version 20240315
 // @match http://cmp.msa.gov.cn/simis-ccs/survey/ssd!ssdApply.do*
 // @updateURL https://raw.githubusercontent.com/ccswz/userscript/master/MSA_Qmdoc.js
 // @downloadURL https://raw.githubusercontent.com/ccswz/userscript/master/MSA_Qmdoc.js
@@ -25,7 +25,7 @@
             '<li> <a id="' +
             doc_arr[i].id +
             '" style="color:yellow">' +
-            doc_arr[i].tplname +
+            doc_arr[i].tplname.slice(0,-11) +
             "</a></li>";
         $("#topmenu > ul > li:nth-child(9)").after(em1);
         $("#" + doc_arr[i].id).click(function (event) {
@@ -125,7 +125,7 @@
             .find("#treeZB")
             .find("li.level1")
             .each(function () {
-                console.log($(this).text().trim());
+                // console.log($(this).text().trim());
                 certs.push($(this).text().trim());
             });
         jdata["date_complete"] = date_complete;
