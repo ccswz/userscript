@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         Hrmis
 // @namespace    http://inner-portal.ccs.org.cn/hrmis/
-// @version      20200616
+// @version      20240146
 // @description  Just for fun!
 // @author       You
-// @match        http://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
-// @match        http://hrmis.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
+// @match        *://inner-portal.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
+// @match        *://hrmis.ccs.org.cn/hrmis/exam/exam!examOnline.do?className=*
 // @grant        none
-// @updateURL    https://gitee.com/last2003/userscript/raw/master/Hrmis.user.js
-// @downloadURL  https://gitee.com/last2003/userscript/raw/master/Hrmis.user.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/Hrmis.user.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/Hrmis.user.js
 // ==/UserScript==
 
 (function() {

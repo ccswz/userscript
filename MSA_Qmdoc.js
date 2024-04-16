@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name MSA-DSMIS Qmdoc
 // @namespace Violentmonkey Scripts
-// @version 20240315
+// @version 20240416
 // @match http://cmp.msa.gov.cn/simis-ccs/survey/ssd!ssdApply.do*
 // @updateURL https://raw.githubusercontent.com/ccswz/userscript/master/MSA_Qmdoc.js
 // @downloadURL https://raw.githubusercontent.com/ccswz/userscript/master/MSA_Qmdoc.js
@@ -53,11 +53,15 @@
     }
 
     //工作控制号
-    const job_no = $(
-        "#theForm > div.panel.layout-panel.layout-panel-north > div > div.ui_panel_tit > h2 > u:nth-child(1)"
-    )
-        .text()
-        .trim();
+    // const job_no = $(
+    //     "#theForm > div.panel.layout-panel.layout-panel-north > div > div.ui_panel_tit > h2 > u:nth-child(1)"
+    // )
+    //     .text()
+    //     .trim();
+
+    const url = window.location.href; // Get the current URL
+    const params = new URLSearchParams(url); // Create a URLSearchParams object
+    const job_no = params.get('jobno'); // Get the value of the jobno parameter
 
     await init(job_no);
 
