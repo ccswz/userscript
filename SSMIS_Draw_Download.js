@@ -5,8 +5,8 @@
 // @match http://ssmis2018.ccs.org.cn/ssmis/pa/paPt/ptShipDrawingsQuery*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/pa/paSp/paShipDrawingsQuery*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/pa/paPt/ptShipDrawingsQuery*
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Draw_Download.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_Draw_Download.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_Draw_Download.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_Draw_Download.js
 // @version      20230827
 // @grant        GM_setClipboard
 // @grant        unsafeWindow

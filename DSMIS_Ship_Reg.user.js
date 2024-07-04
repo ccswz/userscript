@@ -2,10 +2,10 @@
 // @name         DSMIS 国内营运船舶登记
 // @namespace Violentmonkey Scripts
 // @match http://cmp.msa.gov.cn/simis-ccs/survey/ssd!ssdApply.do*
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/DSMIS_Ship_Reg.user.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/DSMIS_Ship_Reg.user.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/DSMIS_Ship_Reg.user.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/DSMIS_Ship_Reg.user.js
 // @version      20230809
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_openInTab
 // @grant        GM_setValue

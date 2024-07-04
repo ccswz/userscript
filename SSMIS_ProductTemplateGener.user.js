@@ -3,11 +3,11 @@
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis/ps/psApproval/psProductAttribute*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/ps/psApproval/psProductAttribute*
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ProductTemplateGener.user.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
 // @version      20231205
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/uslib.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_openInTab
 // @grant        GM_setValue

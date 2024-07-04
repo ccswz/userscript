@@ -6,8 +6,8 @@
 // @version     20230328
 // @author      -
 // @description  海事系统供方船舶监督,显示报告编号以确定年份
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShipParticularInput.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShipParticularInput.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShipParticularInput.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShipParticularInput.js
 
 // ==/UserScript==
 (function () {

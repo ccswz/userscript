@@ -2,8 +2,8 @@
 // @name        师学通自动播放视频 - teacher.com.cn
 // @namespace   Violentmonkey Scripts
 // @match       http://pn202333004.stu.teacher.com.cn/course/intoSelectCourseVideo*
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/teacher.user.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/teacher.user.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/teacher.user.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/teacher.user.js
 // @grant       none
 // @version     1.0
 // @author      -

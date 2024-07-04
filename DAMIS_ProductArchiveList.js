@@ -2,9 +2,9 @@
 // @name damis 产品案卷归档,整理编目
 // @namespace Violentmonkey Scripts
 // @match        http://damis.ccs.org.cn/damis/business/ywgl/danganshuju/DangAnKuServlet.do?method=search*
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/DAMIS_ProductArchiveList.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/DAMIS_ProductArchiveList.js
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/DAMIS_ProductArchiveList.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/DAMIS_ProductArchiveList.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
 // @version 20221201
 // @grant unsafeWindow
 

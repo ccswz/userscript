@@ -5,8 +5,8 @@
 // @version      20221018
 // @author       -
 // @description  海事系统工作列表中快速搜索船舶, `/` 聚焦到搜索框,输入部分船名,`回车`搜索
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_SearchShip.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_SearchShip.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/MSA_SearchShip.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/MSA_SearchShip.js
 // @grant        unsafeWindow
 // ==/UserScript==
 

@@ -7,8 +7,8 @@
 // @version      20230822
 // @author       -
 // @description
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_ShowName.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShowName.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShowName.js
 // @grant        unsafeWindow
 // ==/UserScript==
 

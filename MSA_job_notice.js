@@ -5,10 +5,10 @@
 // @version      20220704
 // @author       -
 // @description  2022-05-23 22:34:10
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_job_notice.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_job_notice.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/uslib.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/MSA_job_notice.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/MSA_job_notice.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_openInTab
 // @grant        GM_setValue

@@ -3,8 +3,8 @@
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis/eform/checklist/checklistForm
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis/eform/checklist/checklistForm
-// @updateURL    https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ChecklistChineseTip.user.js
-// @downloadURL  https://git.ccswz.top:10000/pub/userscript/raw/master/SSMIS_ChecklistChineseTip.user.js
+// @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ChecklistChineseTip.user.js
+// @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ChecklistChineseTip.user.js
 // @version 20230423
 // @grant none
 

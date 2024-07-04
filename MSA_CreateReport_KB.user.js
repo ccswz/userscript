@@ -3,10 +3,10 @@
 // @namespace   Violentmonkey Scripts
 // @description MSA 创建KB报告
 // @match       http://cmp.msa.gov.cn/simis-ccs/survey/ssd!ssdApply.do*
-// @updateURL   https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_CreateReport_KB.user.js
-// @downloadURL https://git.ccswz.top:10000/pub/userscript/raw/master/MSA_CreateReport_KB.user.js
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/moment.min.js
-// @require      https://git.ccswz.top:10000/pub/userscript/raw/master/uslib.js
+// @updateURL   https://raw.githubusercontent.com/ccswz/userscript/master/MSA_CreateReport_KB.user.js
+// @downloadURL https://raw.githubusercontent.com/ccswz/userscript/master/MSA_CreateReport_KB.user.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
+// @require      https://raw.githubusercontent.com/ccswz/userscript/master/uslib.js
 // @version     20230821
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
