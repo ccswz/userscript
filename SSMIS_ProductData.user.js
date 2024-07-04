@@ -3,9 +3,11 @@
 // @namespace Violentmonkey Scripts
 // @match http://ssmis2018.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @match http://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
+// @match https://ssmis2018.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
+// @match https://cn.ssmis2018cloud.ccs.org.cn/ssmis//ps/psApproval/psDocumentReviewList*
 // @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductData.user.js
 // @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductData.user.js
-// @version 20231011
+// @version 20240101
 // @grant unsafeWindow
 
 
