@@ -4,12 +4,13 @@
 // @match        http://cmp.msa.gov.cn/simis-web//sys/oifi/retrieveFieldInspection.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/cert/retrieveOriginalPrint.action*
 // @match        http://cmp.msa.gov.cn/simis-web//sys/archive/initArchiveMain.action*
-// @version      20230822
+// @version      20240919
 // @author       -
 // @description
 // @updateURL    https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShowName.js
 // @downloadURL  https://raw.githubusercontent.com/ccswz/userscript/master/MSA_ShowName.js
 // @grant        unsafeWindow
+// @grant        GM_setClipboard
 // ==/UserScript==
 
 (function () {
@@ -91,7 +92,7 @@
                 if(status==="success"){
                     shipName=data.split("&")[0];
                 }
-                $('#us_shipname').html('<span class="green">'+shipName+' ('+jobNo+')</span>');
+                $('#us_shipname').html('<span class="green" >'+shipName+' ('+jobNo+')</span>');
             });
     }
 
@@ -127,5 +128,21 @@
     	}
     	open(funUrl);
 	}
+
+    // 复制 检验项目表 的标题
+    $(".showdialog1").click(function () {
+        // check if $(this).text() is "打印检验项目表",if so,copy the shipname and jobno to clipboard
+        if ($(this).text() == "打印检验项目表") {
+            // get shipname and jobno
+            let shipname = $('#us_shipname').text();
+            // replace the ( ) with _
+            shipname = shipname.replace(/\(/g, "_").replace(/\)/g, "_");
+             // copy to clipboard
+             GM_setClipboard(shipname + "检验项目表.pdf" );
+        }
+        // open the url
+        // open($(this).attr("href"), "_blank");
+    });
+
 
 })();
