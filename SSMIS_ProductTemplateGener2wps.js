@@ -6,7 +6,7 @@
 // @updateURL       https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
 // @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
 // @version         20240929
-// @require         https://raw.githubusercontent.com/ccswz/userscript/master/moment.min.js
+// @require         https://raw.githubusercontent.com/ccswz/userscript/master/dayjs.min.js
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/gm-fetch.js
 // @grant           GM_xmlhttpRequest
 // @grant           GM.xmlHttpRequest
@@ -175,6 +175,9 @@
     async function makeTplExcel() {
   
         const data =await getData();
+        const version=dayjs().format("YYYYMMDD");
+        Object.assign(data, {version: version});
+        
         console.log(data);
   
         // const url = host + '/ppsdata/template-online-1file';
