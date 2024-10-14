@@ -3,8 +3,8 @@
 // @namespace Violentmonkey Scripts
 // @match           http://ssmis2018.ccs.org.cn/ssmis/psQuery/productQuery*
 // @match           http://cn.ssmis2018cloud.ccs.org.cn/ssmis/psQuery/productQuery*
-// @updateURL       https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
-// @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
+// @updateURL       https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener2wps.js
+// @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener2wps.js
 // @version         20241014
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/dayjs.min.js
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/gm-fetch.js
