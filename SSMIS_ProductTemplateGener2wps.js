@@ -16,7 +16,6 @@
 // @grant           GM_addStyle
 // @grant           unsafeWindow
 
-
 // ==/UserScript==
 
 (async function () {
@@ -27,25 +26,21 @@
     // get host and protocol
     const host = window.location.host;
     const protocol = window.location.protocol;
-  
-  
-  
-  
+
     //添加自定义文件按钮
-    const em1 = '<button type="button" id="us_mbe" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(WPS)</button>';
+    const em1 =
+        '<button type="button" id="us_mbe" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(WPS)</button>';
     // const em2 = '<button type="button" id="us_mbo" class="btn btn-sm btn-warning " style="margin-right: 5px;">生成模板(在线)</button>';
-    $('#isship').before(em1)
+    $("#isship").before(em1);
     // $('button[onclick="saveInfo()"]').before(em2)
-  
-  
-    $('#us_mbe').click(async function (event) {
+
+    $("#us_mbe").click(async function (event) {
         await makeTplExcel();
     });
     // $('#us_mbo').click(async function (event) {
     //     await makeTplOnline();
     // });
-  
-  
+
     // get data
     async function getData() {
         // rowData :
@@ -99,107 +94,159 @@
         //     "ID": 15464317,
         //     "RN": 1
         // }
-  
-        const rowData = $('#datagrid').datagrid('getSelected');
+
+        const rowData = $("#datagrid").datagrid("getSelected");
         if (!rowData) {
-            alert('请选择一行数据')
+            alert("请选择一行数据");
             return;
         }
-        const certNo=rowData.CERTNO;
-        const workId=rowData.WORK_ID;
-        let name=rowData.PRODUCT_CN;
-        const mfg=rowData.MANUFACTURE_NAME_CN;
-  
-  
+        const certNo = rowData.CERTNO;
+        const workId = rowData.WORK_ID;
+        const productCn = rowData.PRODUCT_CN;
+        const productEn = rowData.PRODUCT_EN;
+
+        let name = rowData.PRODUCT_CN;
+        const mfg = rowData.MANUFACTURE_NAME_CN;
+
         const headers = {
-            "accept": "application/json, text/javascript, */*; q=0.01",
-            "accept-language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+            accept: "application/json, text/javascript, */*; q=0.01",
+            "accept-language":
+                "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
             "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
-            "x-requested-with": "XMLHttpRequest"            
-          }
+            "x-requested-with": "XMLHttpRequest",
+        };
         // 第2步，获取产品属性
-        const path1='/ssmis/ps/psApproval/getProductAttribute';
-        const body1="draw=1&columns%5B0%5D%5Bdata%5D=PSCERTPRODUCTID&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=NOS&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=PRODUCTCN&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&certNo="+certNo;
-        const attrRaw1=await GM_fetch(`${protocol}//${host}${path1}`, {
-            method: 'POST',
+        const path1 = "/ssmis/ps/psApproval/getProductAttribute";
+        const body1 =
+            "draw=1&columns%5B0%5D%5Bdata%5D=PSCERTPRODUCTID&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=NOS&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=PRODUCTCN&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&certNo=" +
+            certNo;
+        const attrRaw1 = await GM_fetch(`${protocol}//${host}${path1}`, {
+            method: "POST",
             headers: headers,
-            body: body1
-        })
+            body: body1,
+        });
         const attr1 = await attrRaw1.json();
-        const psCertificateId=attr1.data[0].PSCERTIFICATEID;
-        const psCertProductId=attr1.data[0].PSCERTPRODUCTID;
-  
+        const psCertificateId = attr1.data[0].PSCERTIFICATEID;
+        const psCertProductId = attr1.data[0].PSCERTPRODUCTID;
+
         console.log(attr1);
 
         // 第2步， 产品模型
-        const path2='/ssmis/ps/psApproval/getModel';
-        const body2='draw=1&columns%5B0%5D%5Bdata%5D=PSCERTPRODUCTMODELID&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=MODELCODE&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&certNo='+certNo+'&psCertProductId='+psCertProductId+'&psCertificateId='+psCertificateId
-        const attrRaw2=await GM_fetch(`${protocol}//${host}${path2}`, {
-            method: 'POST',
+        const path2 = "/ssmis/ps/psApproval/getModel";
+        const body2 =
+            "draw=1&columns%5B0%5D%5Bdata%5D=PSCERTPRODUCTMODELID&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=MODELCODE&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&certNo=" +
+            certNo +
+            "&psCertProductId=" +
+            psCertProductId +
+            "&psCertificateId=" +
+            psCertificateId;
+        const attrRaw2 = await GM_fetch(`${protocol}//${host}${path2}`, {
+            method: "POST",
             headers: headers,
-            body: body2
-        })
+            body: body2,
+        });
         const attr2 = await attrRaw2.json();
-        const psCertProductModelId=attr2.data[0].PSCERTPRODUCTMODELID
+        const psCertProductModelId = attr2.data[0].PSCERTPRODUCTMODELID;
 
         // 第3步， 属性列表
-        const path3='/ssmis/ps/psApproval/getAttribute';
-        const body3='draw=1&columns%5B0%5D%5Bdata%5D=PROPERTRYCN&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=NOS&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=VALUECN&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=VALUEEN&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=false&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=UNIT&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=false&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&workId='+workId+'&psCertificateId='+psCertificateId+'&psCertProductId='+psCertProductId+'&psCertProductModelId='+psCertProductModelId+'&psProductId='
-        const attrRaw3=await GM_fetch(`${protocol}//${host}${path3}`, {
-            method: 'POST',
+        const path3 = "/ssmis/ps/psApproval/getAttribute";
+        const body3 =
+            "draw=1&columns%5B0%5D%5Bdata%5D=PROPERTRYCN&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=NOS&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=VALUECN&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=VALUEEN&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=false&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B4%5D%5Bdata%5D=UNIT&columns%5B4%5D%5Bname%5D=&columns%5B4%5D%5Bsearchable%5D=true&columns%5B4%5D%5Borderable%5D=false&columns%5B4%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B4%5D%5Bsearch%5D%5Bregex%5D=false&order%5B0%5D%5Bcolumn%5D=0&order%5B0%5D%5Bdir%5D=asc&start=0&length=-1&search%5Bvalue%5D=&search%5Bregex%5D=false&workId=" +
+            workId +
+            "&psCertificateId=" +
+            psCertificateId +
+            "&psCertProductId=" +
+            psCertProductId +
+            "&psCertProductModelId=" +
+            psCertProductModelId +
+            "&psProductId=";
+        const attrRaw3 = await GM_fetch(`${protocol}//${host}${path3}`, {
+            method: "POST",
             headers: headers,
-            body: body3
-        })
+            body: body3,
+        });
         const attr3 = await attrRaw3.json();
-        const property=attr3.data;
+        const property = attr3.data;
 
         // filter if "PROPERTRYCN": "产品名称"
-        const propertyName = property.filter(item => item.PROPERTRYCN == '产品名称');
+        const propertyName = property.filter(
+            (item) => item.PROPERTRYCN == "产品名称"
+        );
         // if propertyName is not null
         if (propertyName.length > 0) {
             name = propertyName[0].VALUECN;
         }
+        // replace name  名字不能包含非法字符和特殊符号\V:*?<>|
+        name = name
+            .replace(/\//g, "_")
+            .replace(/\\/g, "_")
+            .replace(/\|/g, "_")
+            .replace(/\:/g, "_")
+            .replace(/\*/g, "_")
+            .replace(/\?/g, "_")
+            .replace(/\</g, "_")
+            .replace(/\>/g, "_");
 
         // filter if "PROPERTRYCN": "型号" or "PROPERTRYCN": "规格"
-        const propertyType = property.filter(item => item.PROPERTRYCN == '型号'|| item.PROPERTRYCN == '规格');
+        const propertyType = property.filter(
+            (item) => item.PROPERTRYCN == "型号" || item.PROPERTRYCN == "规格"
+        );
         // if propertyType is not null
-        let type = '';
+        let type = "";
         if (propertyType.length > 0) {
             type = propertyType[0].VALUECN;
         }
 
-        return {mgf: mfg, certNo: certNo, name: name,type:type, property: property};
+        return {
+            mfg: mfg,
+            certNo: certNo,
+            name: name,
+            productCn: productCn,
+            productEn: productEn,
+            type: type,
+            property: property,
+        };
     }
-  
+
     //生成模板
     async function makeTplExcel() {
-  
-        const data =await getData();
-        const version=dayjs().format("YYYYMMDD");
-        Object.assign(data, {version: version});
-        
-        console.log(data);
-  
-        // const url = host + '/ppsdata/template-online-1file';
-        // const url = host + '/api-tplfile';
-        // const res_json = await post(url, data);
-        // if (res_json.status_code == 200) {
-        //     GM_openInTab(host + res_json.data.url);
-        // }
+        const data = await getData();
+        if (!data) {
+            return;
+        }
+        const version = dayjs().format("YYYYMMDD");
+        Object.assign(data, { version: version });
+        const postData = {
+            Context: {
+                argv: {
+                    params: data,
+                },
+            },
+        };
+        console.log(postData);
+
+        // wps airscipt webhook 地址
+        const urlWpsScript =
+            "https://365.kdocs.cn/api/v3/ide/file/332179083423/script/V2-5uWP9kl5dEHWVNtGy8z0uN/sync_task";
+        const token = "6vPn0D4BDJQUdg3Fb8g3x2";
+        const headers = {
+            accept: "application/json, text/javascript, */*; q=0.01",
+            "accept-language":
+                "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+            "Content-Type": "application/json",
+            "AirScript-Token": token,
+        };
+        const body = JSON.stringify(postData);
+        try {
+            const res = await GM_fetch(urlWpsScript, {
+                method: "POST",
+                headers: headers,
+                body: body,
+            });
+            const resJson = await res.json();
+            console.log(resJson);
+        } catch (e) {
+            console.log(e);
+        }
     }
-    // async function makeTplOnline() {
-    //
-    //         const data = getData();
-    //
-    //         const url = host + '/ppsdata/template-mongo';
-    //         const res_json = await post(url, data);
-    //         if (res_json.status_code == 200) {
-    //             GM_openInTab(host + res_json.data.url);
-    //         }
-    //         else {
-    //             alert(res_json.message)
-    //         }
-    // }
-  
-  
-  })();
+})();
