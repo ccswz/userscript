@@ -3,9 +3,9 @@
 // @namespace Violentmonkey Scripts
 // @match           http://ssmis2018.ccs.org.cn/ssmis/psQuery/productQuery*
 // @match           http://cn.ssmis2018cloud.ccs.org.cn/ssmis/psQuery/productQuery*
-// @updateURL       https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
-// @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener.user.js
-// @version         20240929
+// @updateURL       https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener2wps.js
+// @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener2wps.js
+// @version         20241014
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/dayjs.min.js
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/gm-fetch.js
 // @grant           GM_xmlhttpRequest
@@ -230,9 +230,7 @@
             "https://365.kdocs.cn/api/v3/ide/file/332179083423/script/V2-5uWP9kl5dEHWVNtGy8z0uN/sync_task";
         const token = "6vPn0D4BDJQUdg3Fb8g3x2";
         const headers = {
-            accept: "application/json, text/javascript, */*; q=0.01",
-            "accept-language":
-                "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+
             "Content-Type": "application/json",
             "AirScript-Token": token,
         };
@@ -242,6 +240,7 @@
                 method: "POST",
                 headers: headers,
                 body: body,
+                anonymous: true
             });
             const resJson = await res.json();
             console.log(resJson);
