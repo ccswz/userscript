@@ -7,7 +7,7 @@
 // @downloadURL     https://raw.githubusercontent.com/ccswz/userscript/master/SSMIS_ProductTemplateGener2wps.js
 // @version         20241014
 // @require         https://raw.githubusercontent.com/ccswz/userscript/master/dayjs.min.js
-// @require         https://raw.githubusercontent.com/ccswz/userscript/master/gm-fetch.js
+// @require         https://raw.githubusercontent.com/ccswz/userscript/master/gm-fetch.js??ts=20241014
 // @grant           GM_xmlhttpRequest
 // @grant           GM.xmlHttpRequest
 // @grant           GM_openInTab
@@ -244,6 +244,23 @@
             });
             const resJson = await res.json();
             console.log(resJson);
+            // {
+            //     "data": {
+            //         "result": "https://kdocs.cn/l/cjTsARKgIB0m"
+            //     },
+            //     "error": "",
+            //     "status": "finished"
+            // }
+            if(resJson.status == "finished")
+            {
+                GM_openInTab(resJson.data.result);
+                (layer || top.layer).msg(`模板生成成功，正在打开，请稍后！`);
+
+            }
+            else {
+                (layer || top.layer).msg(`模板生成失败: ${resJson.error}`);
+                console.log(resJson);
+            }
         } catch (e) {
             console.log(e);
         }
