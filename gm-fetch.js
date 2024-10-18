@@ -165,7 +165,7 @@ var GM_fetch = (function () {
                 data: bodyData,
                 responseType: "blob",
                 // 支持 anonymous 选项
-                anonymous: options.anonymous === true,  // 如果 anonymous 为 true，则禁用用户凭证
+                anonymous: options?.anonymous === true,  // 如果 anonymous 为 true，则禁用用户凭证
                 onload(response) {
                     resolve(new CustomResponse(response.response, {
                         statusCode: response.status,
